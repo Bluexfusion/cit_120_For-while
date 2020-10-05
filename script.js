@@ -1,33 +1,64 @@
-var PHP = 5;
-var DHP = 10;
+var wrapperEle = document.body.querySelector(".wrapper");
 
-
-var DHPEle = document.body.querySelector(".DHP");
-var PHPEle = document.body.querySelector(".PHP");
-
-document.body.querySelector(".DHP").innerHTML=DHP;
-document.body.querySelector(".PHP").innerHTML=PHP;
-
-var prompter1 = prompt("How many hits will you do? (up to 5)");
-
-var PDMG = Math.floor(Math.random() * prompter1 + 1);
-
-var DDMG = Math.floor(Math.random() * 2 + 1);
-
-
-var DTaken = DHP-PDMG;
-var PTaken = PHP-DDMG;
-
-for (var i=0; i<4; i++)
-{
-  repeat=Number(prompt("How many hits will you do? (up to 5)"));
-  document.body.querySelector(".DHP").innerHTML=DTaken;
-  document.body.querySelector(".PHP").innerHTML=PTaken;
-}
-
-if (DHP <= 0){
-  document.body.querySelector(".results").innerHTML="Excellent you have saved the town from the dragon"
-  
-}else if (PHP <= 0){
-  document.body.querySelector(".result").innerHTML="you lost the game. Try and refresh to try again"
+var warriors= [
+  {
+    name:"Bob",
+    damage:2,
+    health:10,
+    warrior:true
+  },
+  {
+    name:"Jerry",
+    damage:1,
+    health:12,
+    warrior:true
+  },
+  {
+    name:"Mavis",
+    damage:2,
+    health:10,
+    warrior:true
+  },
+  {
+    name:"Morty",
+    damage:4,
+    health:10,
+    warrior:true
+  },
+  {
+    name:"Shorty",
+    damage:10,
+    health:3,
+    warrior:false
+  },
+  {
+    name:"Porty",
+    damage:1,
+    health:14,
+    warrior:true
+  },{
+    name:"Perry",
+    damage:2,
+    health:9,
+    warrior:true
+  },
+  {
+    name:"Larry",
+    damage:2,
+    health:17,
+    warrior:false
+  }
+]
+for(var i=0; i<warriors.length; i++){
+ if(warriors[i].warrior=true && warriors[i].damage>=2 
+    && warriors[i].health>=10){
+ var personEle = document.createElement("div");
+  personEle.innerHTML=warriors[i].name;
+  wrapperEle.appendChild(personEle);
+    } 
+  if(warriors[i].name.includes("a")){
+    personEle.style.color="red";
+  }else{
+    personEle.style.color="black";
+  }
 }
